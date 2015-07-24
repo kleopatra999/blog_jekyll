@@ -1,0 +1,15 @@
+---
+layout: post
+title: 'HOWTO: Store notes online and offline'
+date: '2012-11-11T21:17:00.001-08:00'
+author: Russell Dickenson
+tags:
+- oss
+- linux
+- floss
+modified_time: '2012-11-18T16:05:52.780-08:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-2902691005898944287
+blogger_orig_url: http://phayzshift.blogspot.com/2012/11/how-to-store-notes-online-and-offline.html
+---
+
+I have mentioned on this blog several methods of storing notes so that they're available both online and offline. Since when online I usually have a browser open, it seems logical to seek browser-based solutions to the problem. The problem then was how to make these same notes available when offline. So far none of the services I have tried offered all the features I wanted.<br /><br />Help is here, though, because I have thought of another method and am trialing this now. I won't go into a long explanation as to why I'm trying this method or how to set it up but simply present my current solution:<br /><br /><b>Installation Method</b><br /><br /><ol><li>Install Dropbox client</li><li>Create a subdirectory in the Dropbox directory to contain the notes</li></ol><br /><b>Storage of notes</b><br />Individual notes are created as plain text files and stored in the "notes" directory (or a sub-directory).<br /><br /><b>Searching</b><br />Use the command-line tool 'grep' to search notes' content. An optional feature would be to added specially mark-up "tags" so that you could search by tag, finding matching notes. Example tags could include "todo", "project", "howto".<br /><br /><b>Formatting</b><br />While the notes themselves are plain text files, an optional extra is to use the Markdown markup method to apply formatting. When viewed in a text editor they are still easily read but when viewed using a Markdown viewer, their formatting makes complex notes more legible. One method is to install a Markdown viewer in your browser, give each note with Markdown markup an ".md" extension and associate files with an ".md" extension with the browser. I can then easily browse my notes in a file manager and easily view their contents.<br /><br />Although I am using Dropbox in my current experiment, I could use a FLOSS alternative.<br /><br />The beauty of this approach is that it is cross-platform, since each component is itself cross-platform.

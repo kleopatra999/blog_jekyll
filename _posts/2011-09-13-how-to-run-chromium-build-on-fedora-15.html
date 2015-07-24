@@ -1,0 +1,15 @@
+---
+layout: post
+title: How to run a Chromium "snapshot" build on Fedora 15
+date: '2011-09-13T05:25:00.000-07:00'
+author: Russell Dickenson
+tags:
+- linux
+- tip
+- fedora
+modified_time: '2012-10-31T21:36:06.739-07:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-3996760497178775970
+blogger_orig_url: http://phayzshift.blogspot.com/2011/09/how-to-run-chromium-build-on-fedora-15.html
+---
+
+First, a little background: although Chromium is kindly packaged by Tom Callaway (a maintainer of a LOT of Fedora packages), when I installed it I had several problems occur. Instead I decided to try running a Chromium snapshot and it seemed simple enough:<br/><br/>Download the latest snapshot build (in Zip file)<br/><ol><br/>	<li>Unzip it to ~/bin</li><br/>	<li>Run the chrome binary contained</li><br/></ol><br/>When I tried this, though, it complained that it couldn't load a BZip2 library. Chromium was looking for the library by a different name so I created a symlink in /lib64:<br/><blockquote>ln -s libbz2.so.1.0.6 libbz2.so.1.0</blockquote><br/>&nbsp;<br/><br/><strong>WARNING - WARNING - WARNING: Although the next step(s) won't harm your system I have worked out a better method of getting "Open with..." functionality working for Chromium. I will update this post with those details when I have time.</strong><br/><br/>My next problem was that when I tried to use the "Open with..." functionality anywhere, a new instance of Chromium was started with a separate window and it complained that it couldn't access my profile. I guess it didn't like two instances running at the same time. As an ugly hack I installed the packaged version of Chromium, then:<br/><ol><br/>	<li>Renamed /bin/chromium-browser to chromium-browser.OLD</li><br/>	<li>Created a symlink /bin/chromium-browser to ~/bin/chrome-linux/chrome</li><br/></ol><br/>So far everything's working as I want it to but only time will tell if I have been successful. In the future I expect I'll revert to the packaged version but for now this method is without errors and that's what I need.

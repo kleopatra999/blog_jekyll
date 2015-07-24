@@ -1,0 +1,16 @@
+---
+layout: post
+title: |-
+  SOLVED - "configure: error: C++ preprocessor "/lib/cpp" fails sanity
+  check"
+date: '2010-07-20T14:52:00.001-07:00'
+author: Russell Dickenson
+tags:
+- frugalware
+- linux
+modified_time: '2012-10-31T21:13:01.196-07:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-6245979711278241876
+blogger_orig_url: http://phayzshift.blogspot.com/2010/07/solved-error-c-preprocessor-fails_20.html
+---
+
+<p>I was recently trying to compile the Equinox GTK engine but the "configure" command returned the above error message and prompted me to look at the contents of config.log for further details. When I looked in that file I got messages telling me that certain files ending in ".h" were not found. This was one of those situations where I knew I had had this problem before but couldn't remember what the solution had been. A little Internet searching suggested that I was missing the kernel headers and since that sounded right to me I then installed the kernel-headers package and my problem was solved!</p>

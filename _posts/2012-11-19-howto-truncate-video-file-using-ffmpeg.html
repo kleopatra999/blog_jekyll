@@ -1,0 +1,17 @@
+---
+layout: post
+title: 'HOWTO: Cut the end off a video file using ffmpeg'
+date: '2012-11-18T16:01:00.000-08:00'
+author: Russell Dickenson
+tags:
+- oss
+- linux
+- tip
+- howto
+- floss
+modified_time: '2012-11-18T16:07:08.786-08:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-6496845951348343363
+blogger_orig_url: http://phayzshift.blogspot.com/2012/11/howto-truncate-video-file-using-ffmpeg.html
+---
+
+I had a video file from which I needed to cut the end off from a specific point. I didn't want to use a video editor since it seemed a simple enough task, so I went look for alternate solutions.<br /><br />The following page gave me a solution using <b>ffmpeg</b>:<br /><a href="http://quickhowto.blogspot.com.au/2011/02/how-to-truncate-video-using-command.html">http://quickhowto.blogspot.com.au/2011/02/how-to-truncate-video-using-command.html</a><br /><br />ffmpeg -vcodec copy -acodec copy -i  [inputfile] -ss [start] -t [duration] [outputfile]<br /><br />My first attempt failed because I specified a duration of 36 seconds and I wanted 36 minutes. Reading ffmpeg's man page confirmed that the duration needs to be specified in the format <i>hh:mm:ss</i>. In my case I needed "00:36:00".

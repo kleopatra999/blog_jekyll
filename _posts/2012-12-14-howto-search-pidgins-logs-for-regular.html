@@ -1,0 +1,15 @@
+---
+layout: post
+title: 'HOWTO: Search Pidgin''s logs for a regular expression'
+date: '2012-12-13T14:57:00.000-08:00'
+author: Russell Dickenson
+tags:
+- linux
+- tip
+- howto
+modified_time: '2012-12-13T14:57:25.675-08:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-1460258176531910110
+blogger_orig_url: http://phayzshift.blogspot.com/2012/12/howto-search-pidgins-logs-for-regular.html
+---
+
+I wanted to search all of Pidgin's logs for mention of a subject I remembered was discussed a few months ago.<br /><br />From within the directory for Pidgin's log files - ~/.purple - I tried the following command:<br /><br />grep -R &lt;regex&gt; *.txt"<br /><br />Sadly this failed miserably so I asked for help. Immediately someone came up with the answer:<br /><br /><span style="font-family: Courier New, Courier, monospace;">grep -R &lt;regex&gt; **/*.txt</span>

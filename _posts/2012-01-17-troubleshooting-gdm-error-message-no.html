@@ -1,0 +1,15 @@
+---
+layout: post
+title: Troubleshooting GDM error message "Oh no! Something has gone wrong"
+date: '2012-01-17T03:00:00.000-08:00'
+author: Russell Dickenson
+tags:
+- gnome3
+- frugalware
+- linux
+modified_time: '2012-10-31T21:36:06.985-07:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-5395003268802763788
+blogger_orig_url: http://phayzshift.blogspot.com/2012/01/troubleshooting-gdm-error-message-no.html
+---
+
+After a recent update of several packages I booted and instead of the GDM's login screen it showed me a full-screen error message featuring a wonderfully smiling monitor: "Oh no! Something has gone wrong." My first reaction was to panic but I soon calmed down. My problem was that I had never seen a fatal message like this from GDM and so didn't know how to diagnose the problem. I Googled the title of the message and found that the following log file should contain any detailed error messages that GDM is reporting.<br/><br/><pre>/var/log/gdm/:0-greeter.log</pre><br/><br/>I successfully logged in at a console (i.e. non-GDM) by appending "3" to the GRUB kernel line (which specifies the run level to be booted into). I then looked at the above log file and, amongst the messages found that the file "/usr/share/gnome-shell/theme/gdm.css" was reported missing. I confirmed that that file was not there. I'm not sure what package is supposed to contain it but from doing a "pacman-g2 -Qo &lt;file&gt;" on other files in the same directory, it seems it should have come with the Frugalware GDM theme. For the moment I copied this file from another distribution, logged out and rebooted. This time GDM started as normal and I could log in.<br/><br/>Problem solved! \O/

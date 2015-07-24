@@ -1,0 +1,15 @@
+---
+layout: post
+title: 'HOWTO: Rotate a video using ffmpeg'
+date: '2011-10-28T00:34:00.000-07:00'
+author: Russell Dickenson
+tags:
+- frugalware
+- linux
+- tip
+modified_time: '2012-11-18T16:07:31.652-08:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-2643858278380340139
+blogger_orig_url: http://phayzshift.blogspot.com/2011/10/howto-rotate-video-using-ffmpeg.html
+---
+
+<b>Note:</b>I am using Linux and have not tested this on other operating systems, so your results may vary.<br /><br />I recently received a video from someone with a request to post it to a video hosting site. It all sounded simple until I found that the video had been recorded using an iPad in landscape mode so when I played the video the image was rotated. Before posting it I was going to have to rotate the video so that playback looked normal but how was I going to do that?<br /><br />I first considered a video editor but the ones I considered had too many dependencies so I continued my search and eventually found a solution here:&nbsp;<a href="http://stackoverflow.com/questions/3937387/rotating-videos-with-ffmpeg">http://stackoverflow.com/questions/3937387/rotating-videos-with-ffmpeg</a>, which gave instructions on using ffmpeg's "transpose" feature to&nbsp;rotate the video.<br /><br />For my task here's the command line I used. This is to entered as one line, but may be appear wrapped in your browser:<br /><blockquote>ffmpeg -i &lt;input_video_filename&gt; -vf "transpose=1" -r 30 -sameq -acodec copy &lt;output_video_filename&gt;</blockquote><br />The "transpose" function is one of ffmpeg's many video filters which, according to the ffmpeg man page is used to "Transpose rows with columns in the input video and optionally flip it." Below is a list of other transpose parameters and what they do. For full details,  refer to the transpose video filter&nbsp;section of ffmpeg's man page for details of the necessary values.<br /><br /><blockquote><br />0 = 90CounterCLockwise and Vertical Flip (default)<br />1 = 90Clockwise<br />2 = 90CounterClockwise<br />3 = 90Clockwise and Vertical Flip</blockquote><br /><br /><b>Note:</b>&nbsp;In this example I used three additional parameters:<br /><ul><br /><li>"-acodec copy" parameter, which instructs ffmpeg to copy the audio, not process it again (<b>Note:</b> Thanks to a comment on this blog entry from Tim;</li><br /><li>"-sameq" parameter so that the video's original quality was not lost during the rotation because without it ffmpeg degraded quality;</li><br /><li>"-r 30" to maintain a framerate of 30 frames per second.</li></ul>

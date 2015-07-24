@@ -1,0 +1,14 @@
+---
+layout: post
+title: One-line text editor in your web browser
+date: '2013-02-05T15:29:00.001-08:00'
+author: Russell Dickenson
+tags:
+- firefox
+- tip
+modified_time: '2013-02-05T15:29:33.907-08:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-2415905238496904666
+blogger_orig_url: http://phayzshift.blogspot.com/2013/02/one-line-text-editor-in-your-web-browser.html
+---
+
+A colleague of mine gave me a tip for a basic, in-browser text editor. In a modern browser, enter the following in the address bar:<br /><br /><pre><br />data:text/html, &lt;html contenteditable&gt;<br /><br /></pre><br />At first it seems that nothing's happened. The browser pane is one large text entry field. It's a great way of being able to quickly copy snippets of text from a web page, or keep temporary notes. You can even bookmark the address so that you can quickly have a scratchpad available.<br /><br />When I first saw this I was amazed! OK, maybe I'm easily impressed. :)  I wanted to share it, so asked if I could mention it on G+. My colleague suggested that instead I link to the original page. When I searched for this, I had many hits returned, with the first being a blog post titled <a href="https://coderwall.com/p/lhsrcq">&quot;One line browser notepad&quot;</a>. The blog post's author described the method I mentioned above. I then went on to read some of the comments made in reply to the post and was amazed to see that there were at least 10 further enhancements and improvements suggested. I highly recommending you visit this blog post and try some of the methods.<br > For my purposes I settled on the example below. It goes a few steps further than the basic example, giving the tab a title, adding a [Save] button, increasing the text size, adding a favicon and setting the focus on the editing pane. One advantage of this solution over other solutions suggested is the ability to save the contents of the text box. It's not a fully-blown editor but you can at least save your notes if you want to do that.  All credit for the code below goes to those who commented to the blog entry. It is entirely the result of cut-and-paste-ing some of their contributions. <br /> <code>data:text/html;charset=utf-8,&lt;link%20rel="shortcut%20icon"%20href="http://g.etfv.co/http://www.sublimetext.com"/&gt;&lt;title&gt;Scratchpad&lt;/title&gt;&lt;button%20onClick="SaveTextArea()"&gt;Save&lt;/button&gt;%20&lt;script%20language="javascript"%20type="text/javascript"&gt;%20function%20SaveTextArea()%20{{ "{%" }}20window.location%20=%20"data:application/octet-stream,"%20+%20escape(txtBody.value);%20}%20&lt;/script&gt;%20&lt;textarea%20id="txtBody"%20style="font-size:%201.5em;%20width:%20100%;%20height:%20100%;%20border:%20none;%20outline:%20none"%20autofocus&gt;%20&lt;/textarea&gt; </code>

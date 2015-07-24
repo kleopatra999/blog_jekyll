@@ -1,0 +1,17 @@
+---
+layout: post
+title: |-
+  SOLVED - Problem with RALink wireless support in MSI Wind U200 under
+  Linux
+date: '2010-07-19T14:55:00.001-07:00'
+author: Russell Dickenson
+tags:
+- frugalware
+- linux
+- hardware
+modified_time: '2012-10-31T21:13:01.219-07:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-6130763899423523651
+blogger_orig_url: http://phayzshift.blogspot.com/2010/07/solved-problem-with-ralink-wireless_19.html
+---
+
+<p>I recently bought an MSI Wind U200 notebook, which has RALink wireless firmware. The problem was that the kernel provided with my Linux distribution of choice - Frugalware - apparently didn't include the file required to get the wireless working. Output of "dmesg" reported that it was looking for a firmware file "rt3090.bin". I quickly confirmed that the file wasn't included in the ralink-firmware package, so I went to the RALink web site and downloaded the firmware package quoted for the 3090 chipset, which I guessed was what I needed. The problem was that even this didn't contain a "3090.bin" file. A little Internet searching later and I saw several people saying that simply creating a symlink named "rt3090.bin" to "/lib/firmware/rt2860.bin" would solve my problem. So I simply created that symlink and wireless has been working well ever since.<p />Problem solved!</p>

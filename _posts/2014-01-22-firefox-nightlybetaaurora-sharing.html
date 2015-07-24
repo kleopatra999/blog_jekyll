@@ -1,0 +1,13 @@
+---
+layout: post
+title: Firefox Nightly/Beta/Aurora - Sharing plugins with a standard Firefox release
+  on Linux
+date: '2014-01-21T16:33:00.001-08:00'
+author: Russell Dickenson
+tags: 
+modified_time: '2014-01-21T16:33:58.984-08:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-207364429149283687
+blogger_orig_url: http://phayzshift.blogspot.com/2014/01/firefox-nightlybetaaurora-sharing.html
+---
+
+To share the plugins of an existing, standard Firefox installation on Linux, create a symlink in the directory ~/.mozilla.  1. Open a terminal emulator and navigate to ~/.mozilla. If this directory doesn't exist, create it with the command "mkdir .mozilla". 2. Create a symlink to the 'plugins' directory of the existing Firefox installation with the command "ln -s /usr/lib64/mozilla/plugins/ plugins" 3. Start Firefox Nightly/Beta/Aurora and open the 'Plugins' page. If this procedure has been successful you will see the same list of plugins as in the existing Firefox installation.  The example symlink command assumes you're using a 64-bit Linux distribution. If not, exclude the "64" from the command. If the 'plugins' directory is in a different directory to this example, modify the path in the example symlink command.

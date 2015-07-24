@@ -1,0 +1,14 @@
+---
+layout: post
+title: 'SOLVED: Writing a hybrid ISO image to a USB stick/key/thumb drive on OSX is
+  very slow'
+date: '2013-10-02T15:15:00.001-07:00'
+author: Russell Dickenson
+tags:
+- osx mac apple
+modified_time: '2013-10-02T15:18:29.174-07:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-7729850488984717417
+blogger_orig_url: http://phayzshift.blogspot.com/2013/10/solved-writing-hybrid-iso-image-to-usb.html
+---
+
+Being new to OSX and my iMac, I couldn't understand why writing an ISO image to a USB thumb drive was very slow, sometimes taking around 2 hours. Having done the same under Linux I *knew* it wasn't supposed to take that long. Finally I searched for and found the solution in a superuser entry [1], I found a solution: prefix the device name with "r". I also learned that the block size parameter must be specified in lower case on OSX: "bs=1M" instead of "bs=1M" under Linux.  WARNING: The device parameters I have used in the following examples may not match the device parameters required in your configuration. *DO NOT* simply copy-and-paste these commands.  For example, the following is a command I might use under Linux:  <blockquote>dd if=filename.iso of=/dev/sdb bs=1M</blockquote> The equivalent command on OSX would be:  <blockquote>dd if=filename.iso of=/dev/rdisk1 bs=1m</blockquote> Note the "r" in the output device's name, also that the "m" is in lower case.   [1] http://superuser.com/questions/421770/dd-performance-on-mac-os-x-vs-linux

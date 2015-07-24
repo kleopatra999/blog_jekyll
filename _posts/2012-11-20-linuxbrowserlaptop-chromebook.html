@@ -1,0 +1,15 @@
+---
+layout: post
+title: Linux+Browser+Laptop = Chromebook?
+date: '2012-11-19T15:38:00.001-08:00'
+author: Russell Dickenson
+tags:
+- firefox
+- linux
+- chromebookproject
+modified_time: '2012-11-19T15:42:18.704-08:00'
+blogger_id: tag:blogger.com,1999:blog-510053790932706340.post-2408971540014653211
+blogger_orig_url: http://phayzshift.blogspot.com/2012/11/linuxbrowserlaptop-chromebook.html
+---
+
+I recently tried and failed to boot Hexxeh's Lime and Vanilla builds of Chromium OS on my MSI Wind U200 laptop. While I saw it as a set-back it got me thinking: isn't Linux+Browser essentially an equivalent configuration?<br /><br />I'm trying to achieve much the same functionality as is provided by a Chromebook:<br /><br />An OS which boots quickly (up to 30 seconds) and presents the user a web browser in full-screen.<br /><br />Extra details of what I'm seeking are:<br /><ul><li>Built-in advertisement suppression. Installing an appropriate extension would achieve this goal.</li><li>Multi-user support. Having multiple Firefox desktop icons would achieve this goal.</li><li>Synchronisation of bookmarks, history etc. Enable Firefox's native synchronisation would achieve this goal.</li><li>Printing support. Installing and configuring CUPS should achieve this goal.</li><li>Domain blocking. Either "installing" an appropriate hosts file or doing this via my router should achieve this goal.</li></ul><br />What  I don't yet have worked out is the "wrapper" to all of this: a Linux  distribution which boots quickly into the browser and only a browser,  allowing the user to quickly and easily shut down the PC when they're  finished.<br /><br />My thoughts are to do a minimal Salix OS installation,  probably Fluxbox edition, and instead of using GDM or similar, write an  .xinitrc which starts Firefox immediately, perhaps followed by the  "shutdown" command, so that exiting Firefox shuts down the PC without  further user intervention. If this is to be a multi-user installation, I could have large desktop icons labeled with each user's name which start Firefox with their own profile.<br /><br />I'll report my progress via follow-up posts here.
